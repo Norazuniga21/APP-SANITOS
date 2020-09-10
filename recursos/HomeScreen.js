@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, LayoutAnimation} from 'react-
 
 import * as firebase from 'firebase'
 
+//VISTA HOME PRINCIPAL
 export default class HomeScreen extends React.Component {
 
     state = {

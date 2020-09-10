@@ -4,6 +4,7 @@ import { Ionicons} from '@expo/vector-icons'
 
 import * as firebase from 'firebase'
 
+//VISTA REGISTRO USUARIO NUEVO
 export default class SignupScreen extends React.Component {
 
     static navigationOptions = {

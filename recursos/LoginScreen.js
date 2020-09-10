@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar, 
 
 import * as firebase from 'firebase'
 
+//VISTA LOGIN
 export default class LoginScreen extends React.Component {
 
   static navigationOptions = {

@@ -2,6 +2,8 @@ import React from 'react'
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar, Picker} from 'react-native'
 import DateTimePicker from 'react-native-modal-datetime-picker'
 
+
+//FORMULARIO AGREGAR NIÑO
 export default class PostScreen extends React.Component {
 
       static navigationOptions = {
