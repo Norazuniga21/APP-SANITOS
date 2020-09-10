@@ -1,17 +1,54 @@
 import React from 'react'
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar} from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar, Picker} from 'react-native'
+import DateTimePicker from 'react-native-modal-datetime-picker'
 
 export default class PostScreen extends React.Component {
 
-    static navigationOptions = {
+      static navigationOptions = {
         header: null
       }
-  
+
       state = {
-        name:"",
-        email:"",
-        password:"",
-        errorMessage: null
+        escolaridade: ""
+      };
+
+      state = {
+        sangre: ""
+      };
+
+      state = {
+        data1: ""
+      };
+
+      changeDate = (valor) => {        
+        this.setState({
+          valor: data1
+        })
+      };
+
+      constructor() {
+        super();
+        this.state = {
+          isVisible: false
+        };
+      };
+
+      handlePicker = () => {
+        this.setState({
+          isVisible: false
+        })
+      };
+
+      showPicker = () => {
+        this.setState({
+          isVisible: true
+        })
+      };
+
+      hidePicker = () => {
+        this.setState({
+          isVisible: false
+        })
       };
 
     render () {
@@ -19,6 +56,12 @@ export default class PostScreen extends React.Component {
             <View style={styles.container}>
                 
                 <View style={styles.form}>
+
+                    <View>
+                        <Text 
+                        style={styles.title1}
+                        >Agregar niña/a</Text>
+                    </View>
 
                     <View>
                         <Text style={styles.inputTitle}>Nombre</Text>
@@ -40,6 +83,62 @@ export default class PostScreen extends React.Component {
                         ></TextInput>
                     </View>
 
+                    <View>
+                        <Picker
+                        style={styles.pickerComponent}
+                        selectedValue={this.state.escolaridade}
+                        onValueChange={
+                          (itemValor, itemIndex) =>
+                          this.setState({
+                            escolaridade: itemValor
+                          })
+                        }
+                        >
+                          <Picker.Item label='Sexo' value=''/>
+                          <Picker.Item label='Niña' value='Niña'/>
+                          <Picker.Item label='Niño' value='Niño'/>
+
+                        </Picker>
+                    </View>
+
+                    <View>
+                        <Picker
+                        style={styles.pickerComponent}
+                        selectedValue={this.state.sangre}
+                        onValueChange={
+                          (itemValor, itemIndex) =>
+                          this.setState({
+                            sangre: itemValor
+                          })
+                        }
+                        >
+                          <Picker.Item label='Tipo de sangre' value=''/>
+                          <Picker.Item label='A positivo' value='A positivo'/>
+                          <Picker.Item label='A negativo' value='A negativo'/>
+                          <Picker.Item label='B positivo' value='B positivo'/>
+                          <Picker.Item label='B negativo' value='B negativo'/>
+                          <Picker.Item label='O negativo' value='O negativo'/>
+                          <Picker.Item label='O negativo' value='O negativo'/>
+                          <Picker.Item label='AB positivo' value='AB positivo'/>
+                          <Picker.Item label='AB negativo' value='AB negativo'/>
+
+
+                        </Picker>
+                    </View>
+
+                    <View>
+                        <TouchableOpacity>
+                        <Text></Text>
+                        </TouchableOpacity>
+
+                        <DateTimePicker
+                          isVisible={this.state.isVisible}
+                          onConfirm={this.handlePicker}
+                          onCancel={this.hidePicker}
+                        />
+                      
+                    </View>
+
                 </View>
 
             </View>
@@ -50,6 +149,14 @@ export default class PostScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+    },
+    title1: {
+      textAlign:'center', 
+      fontSize: 15, 
+      color:'#8A8F9E', 
+      marginBottom: 20, 
+      marginTop:20,
+      textTransform: 'uppercase'
     },
     greeting: {
       marginTop: 32,
@@ -86,7 +193,7 @@ const styles = StyleSheet.create({
       borderBottomWidth: StyleSheet.hairlineWidth,
       height: 40,
       fontSize: 15,
-      color: '#1611F3D'
+      color: '#1611F3D',
     },
     button: {
       marginHorizontal: 30,
@@ -115,5 +222,17 @@ const styles = StyleSheet.create({
       marginTop: 48,
       justifyContent: 'center',
       alignItems: 'center'
+    },
+    pickerComponent: {
+      color: '#8A8F9E',
+      fontSize: 10,
+      textTransform: 'uppercase',
+      borderBottomColor: '#8A8F9E',
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      marginTop: 20
+    },
+    dateComponent: {
+      width: 450 ,
+      marginTop: 20
     }
-  });
+  })

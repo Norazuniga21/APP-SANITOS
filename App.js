@@ -55,12 +55,6 @@ const AppTabNavigator = createBottomTabNavigator (
       navigationOptions: {
         tabBarIcon: ({tintColor}) => <Ionicons name='ios-person' size={24} color={tintColor}/>
       }
-    },
-    Message: {
-      screen: MessageScreen,
-      navigationOptions: {
-        tabBarIcon: ({tintColor}) => <Ionicons name='ios-chatboxes' size={24} color={tintColor}/>
-      }
     }
   },
   {
